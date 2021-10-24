@@ -1,0 +1,210 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/************************************************
+                    DEFAULTS
+************************************************/
+
+html{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+    font-size:10px; /*makes the math easier with ems and rems; we dont usually use 10px for font*/
+    background:black;
+    color:aquamarine;
+}
+
+h2{
+    font-size:3.2rem; /*32 px - based on the root size of 10 px set in HTML*/
+
+}
+
+p{
+    font-size:1.6rem; /*16px based on root size of html*/
+}
+
+/************************************************
+                    MAIN
+************************************************/
+
+/* style the element with the ID container */
+#container{
+    width:1024px;
+    margin:0 auto; /* 0 on the top and bottom, and "auto on the left and right
+    this will centre the element in the browser window */
+    /*background-color: grey;*/
+
+}
+
+
+.header-image{
+    width:100% /*100% of the width of whatever element this image is inside of */
+}
+
+/*.larger span{
+    display:block;
+    width:200px;
+    height:100px;
+    margin: 25px;
+    padding:15px;
+    border: 2px solid yellow;
+} */
+
+/************************************************
+                    NAV
+************************************************/
+nav{
+    height:44px;
+    margin-bottom:20px;
+    border-bottom:2px solid #204;   
+
+}
+
+nav li{
+    float:left; /*this will make the li elemements, which are block elements, sit next to each other*/
+}
+
+nav a{
+    display:block; /*make the anchors tags into boxes so we can do something interesting to them */
+    width:142px;
+    height:44px;
+    text-align:center;
+    margin:0 5px; /*0 on top and bottom, 5 px on left and right */
+    text-decoration: none; /*removes the underline default from link*/
+}
+
+/* targetting the span, inside anchor tags, inside list items, inside the nav */
+nav li a span{
+    display:block;
+    float:left;
+    font-size:1.6rem; /* 1.6 times the root font size in HTML */
+    line-height:2.5em; /*2.5 times the font size of this element */
+    color:aquamarine; /*remembere there is no font-colour - colour sets the font colour */
+
+}
+
+nav a img{
+    width:22px;
+    padding: 0.7em 5px 0 15px; /*padding and margin can be set using multiple different
+    units of measure all of which are interchangeable
+    0.7 times the elemenet's font size to the padding on the top
+    5px to the padding on the right
+    0 padding on the bottom - 0 doesn't need a unit, because 0 is always 0
+    15px to the padding on the left */
+    float:left;
+}
+
+/* apply the same properties to the hoverstate of the links in the nav, and also the 
+element with the class current. */
+nav a:hover, .current{
+    background: #204;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+}
+
+#play{
+    color:aquamarine;
+    /* float:right; /*floating it the opposite way of the other floated elements 
+    so it sits on the right*/
+    font-size: 2rem;
+    background:#204;
+    border:1px solid aquamarine;
+    border-radius:10px; /*makes the corners look rounded */
+    padding:0.5em;
+    height:auto; /*override the height set on the nav a - auto asks the browser
+    to automatically calculate the height based on the content inside the element*/
+    /* use potition fixed to make the button stay on screen when scrolling */
+    position:fixed;
+    /* set its position relative to the browser window using top/bottom, left/right */
+    top:5%;
+    right:10%;
+}
+
+/************************************************
+                    CONTENT
+************************************************/
+section{
+    margin:2%; /*margin is on the outside and pushes other elements away*/
+    border:2px solid aquamarine;
+    padding:20px 10px 15px 25px; /*padding is on the inside and pushes content away from the edge */
+    /* when you use four values in padding or margin, it's top, right, bottom, and left */
+    
+    /* 
+    You can style individual padding, margin (and even border) on each side of the element:background-color: background-color: 
+    padding-top 
+    padding-bottom
+    padding-left
+    padding-right
+    */
+
+    width:46%;
+    height:200px;
+    float:left;
+    box-sizing:border-box; /*tells the broswer to automatically calculate the size of this element including the
+    border, and padding - with the total width & height */
+}
+
+article{
+    background-color: grey;
+}
+
+/* one way to fix the floating height problem is to use clear (makes text in footer move back down) */
+footer{
+    clear:both; /*you can clear left or clear right if you only want to clear on direction of float*/
+}
+
+/* applying clearfix to an element, like this, makes it see the height of the floated elements inside of it */
+/* the "after" section is attached to the bottom of the element */
+.clearfix:after{
+    content: ""; /*this and the display table below make the "after" show up*/
+    display: table;
+    clear: both;
+  }
+/* use float to have text wrap around an image */
+ section p img{
+     float:left;
+ }
